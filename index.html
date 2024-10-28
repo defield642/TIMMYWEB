@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timmy's Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="showSection('theme')">
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('theme')">Theme</a></li>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('menu')">Menu</a></li>
+                <li><a href="#" onclick="showSection('achievements')">Achievements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Personal Details Section -->
+    <section id="personal-details" class="content-section">
+        <h2>About Me</h2>
+        <p>Hello, I'm Timmy! I'm passionate about technology and skilled in web development, Android app creation, network configuration, cybersecurity, and ethical hacking.</p>
+    </section>
+
+    <!-- Theme Section (On-Load Display) -->
+    <section id="theme" class="content-section">
+        <h1>What I Do</h1>
+        <ul>
+            <li onclick="openContactForm('Web Development')">Web Development</li>
+            <li onclick="openContactForm('Android App Creation')">Android App Creation</li>
+            <li onclick="openContactForm('Network Configuration')">Network Configuration</li>
+            <li onclick="openContactForm('Cybersecurity')">Cybersecurity</li>
+            <li onclick="openContactForm('Ethical Hacking')">Ethical Hacking</li>
+        </ul>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home" class="content-section" style="display: none;">
+        <h1>THIS IS MY WEBSITE</h1>
+        <p>Welcome to my personal website where you can explore my work and achievements.</p>
+    </section>
+
+    <!-- Contact Form Modal -->
+    <div id="contactForm" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Contact Me About <span id="serviceType"></span></h2>
+            <form action="send_email.php" method="POST">
+                <input type="hidden" name="service_type" id="serviceTypeInput">
+                <label for="email">Your Email:</label>
+                <input type="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="content-section" style="display: none;">
+        <h2>Achievements</h2>
+        <div id="achievementList">
+            <!-- Sample Achievement -->
+            <div class="achievement">
+                <h3>Project Title</h3>
+                <p>Description of the project or task I completed.</p>
+                <form class="comment-form" action="submit_comment.php" method="POST">
+                    <input type="hidden" name="achievement_id" value="1">
+                    <label for="comment">Leave a comment:</label>
+                    <textarea name="comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="comments">
+                    <p><strong class="client-comment">Client Comment:</strong> Great job!</p>
+                    <!-- More comments will be appended here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
